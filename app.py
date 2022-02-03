@@ -1,3 +1,4 @@
+from json import dumps
 import os
 from flask import (
     Flask, flash, render_template,
@@ -17,11 +18,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-@app.route("/")
-def index():
-    return render_template("base.html", page_title="Home")
 
-@app.route("/show_properties")
-def show_properties():
-    properties = mongo.db.properties.find({},{"property_type":1, "bedrooms":1,"description":1,"city":1})
+@app.route("/")
+@app.route("/get_properties")
+def get_properties():
+    properties = mongo.db.properties.find()
     return render_template("properties.html", properties=properties)
+        
