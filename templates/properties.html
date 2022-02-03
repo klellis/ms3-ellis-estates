@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Property Search</h3>
+
+<body>
+    {% for property in properties %}
+    <h3>{{property["property_type"]}}</h3>
+    {% endfor %}
+{% endblock %}
+</body>

@@ -16,3 +16,12 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+@app.route("/")
+def index():
+    return render_template("base.html", page_title="Home")
+
+@app.route("/show_properties")
+def show_properties():
+    properties = mongo.db.properties.find({},{"property_type":1, "bedrooms":1,"description":1,"city":1})
+    return render_template("properties.html", properties=properties)
