@@ -24,4 +24,10 @@ mongo = PyMongo(app)
 def get_properties():
     properties = mongo.db.properties.find()
     return render_template("properties.html", properties=properties)
+
+
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
         
