@@ -26,6 +26,13 @@ def get_properties():
     return render_template("properties.html", properties=properties)
 
 
+@app.route("/property_detail/<property_id>")
+def property_detail(property_id):
+    property_id = mongo.db.properties.find({
+        "_id": ObjectId(property_id),
+    })
+    return render_template("property_detail.html", property_id=property_id)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
