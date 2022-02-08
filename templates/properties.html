@@ -1,18 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="{{ url_for('search') }}" method="POST">
-    <div class="mb-6">
-        <label for="query">Search Properties</label>
-      <input type="text" name="query" id="query" minlength="3" class="validate" required placeholder="Enter a location...">
-    </div>
-    <div class="mb-6">
-        <a href="{{ url_for('get_properties') }}" class="red btn text-shadow">Reset</a> 
-        <button type="submit" class="light-blue darken-1 btn text-shadow">
-            <i class="fas fa-search left"></i> Search
-        </button>
-    </div>
-    
-  </form>
+<section class="min-h-screen w-full rounded-lg p-32 flex flex-col justify-center items-center" style="background-image: url('https://images.pexels.com/photos/7641923/pexels-photo-7641923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); background-size: cover; ">
+
+    <h1 class="text-6xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-500">Find your forever home</h1>
+  
+    <p class="text-gray-100 text-2xl mb-8">
+        <form action="{{ url_for('search') }}" method="POST">
+            <div class="mb-6">
+                <label for="query"></label>
+  <input type="text" name="query" id="query" minlength="3" class="validate" required placeholder="Enter a location..." class="w-4/6 h-16 px-3 rounded-l mb-8 pl-16 focus:outline-none focus:shadow-outline px-8 shadow-lg" type="search" placeholder="Find your adventure..." />
+    <button type="submit" class="w-2/6 bg-blue-500 hover:bg-blue-700 border-teal-500 hover:border-teal-700 text-white rounded-r h-16">
+      Search
+    </button>
+    <a href="{{ url_for('get_properties') }}" class="red btn text-shadow">Reset</a> 
+    <button type="submit" class="light-blue darken-1 btn text-shadow">
+  
+</div>
+</form>
+
+    </p>
+  
+    <div class="container flex text-xl w-4/6">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute text-gray-500 h-16 w-16 p-4">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  
+      </svg>
+      
+  
+  </section>
             {% for property in properties %}
             <main class="py-6 px-4 sm:p-6 md:py-10 md:px-8">
                 <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
