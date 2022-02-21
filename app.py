@@ -22,13 +22,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_properties")
 def get_properties():
-    properties = mongo.db.properties.find()
+    properties = mongo.db.properties.find({"is_under_150k": "true"})
     return render_template("properties.html", properties=properties)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    mongo.db.properties.create_index([('$**', 'text')])
     query = request.form.get("query")
     properties = mongo.db.properties.find({"$text": {"$search": query}})
     return render_template("properties.html", properties=properties, query=query)
@@ -48,3 +47,5 @@ if __name__ == "__main__":
             port=int(os.environ.get("PORT")),
             debug=True)
         
+
+

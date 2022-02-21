@@ -30,6 +30,51 @@
       
   
   </section>
+
+ <!-- Dropdown Price  -->
+ <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Price</button>
+    <div id="myDropdown" class="dropdown-content">
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <a href="" method="POST" name="price_150k" id="price_150k">Up to £150,000</a>
+      <a href="">Up to £200,000</a>
+      <a href="">Up to £250,000</a>
+      <a href="">Up to £275,000</a>
+      <a href="">Up to £300,000</a>
+      <a href="">Up to £320,000</a>
+      <a href="">No Max</a>
+     
+    </div>
+  </div>
+
+  <!-- Dropdown bedrooms-->
+
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Bedrooms</button>
+    <div id="myDropdown" class="dropdown-content">
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <a href="#about">1 Bedroom</a>
+      <a href="#base">2+ Bedrooms</a>
+      <a href="#blog">3+ Bedrooms</a>
+      <a href="#contact">4+ Bedrooms</a>
+      <a href="#custom">5+ Bedrooms</a>
+      <a href="#support">No Max</a>
+    </div>
+  </div>
+
+  <!-- Dropdown type-->
+
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Property Type</button>
+    <div id="myDropdown" class="dropdown-content">
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <a href="#about">Detached</a>
+      <a href="#base">Semi-detached</a>
+      <a href="#blog">Terraced</a>
+      <a href="#contact">Bungalow</a>
+      <a href="#custom">Apartment</a>
+    </div>
+  </div>
             {% for property in properties %}
             <main class="py-6 px-4 sm:p-6 md:py-10 md:px-8">
                 <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
