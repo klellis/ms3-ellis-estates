@@ -19,10 +19,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+
 @app.route("/")
 @app.route("/get_properties")
 def get_properties():
-    properties = mongo.db.properties.find({"is_under_150k": "true"})
+    properties = mongo.db.properties.find()
     return render_template("properties.html", properties=properties)
 
 
@@ -31,6 +32,12 @@ def search():
     query = request.form.get("query")
     properties = mongo.db.properties.find({"$text": {"$search": query}})
     return render_template("properties.html", properties=properties, query=query)
+
+@app.route("/filter")
+def filter():
+    properties = mongo.db.properties.find({"price":{"$lte":"150000"}})
+    return render_template("properties.html", properties=properties)
+
 
 
 @app.route("/property_detail/<property_id>")

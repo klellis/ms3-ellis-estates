@@ -36,7 +36,7 @@
     <button onclick="myFunction()" class="dropbtn">Price</button>
     <div id="myDropdown" class="dropdown-content">
       <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-      <a href="" method="POST" name="price_150k" id="price_150k">Up to £150,000</a>
+      <a href="{{ url_for('filter') }}" method="POST" name="price_150k" id="price_150k">Up to £150,000</a>
       <a href="">Up to £200,000</a>
       <a href="">Up to £250,000</a>
       <a href="">Up to £275,000</a>
