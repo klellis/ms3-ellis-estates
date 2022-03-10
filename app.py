@@ -38,6 +38,33 @@ def filter():
     properties = mongo.db.properties.find({"price":{"$lte":"150000"}})
     return render_template("properties.html", properties=properties)
 
+@app.route("/filter200k")
+def filter200k():
+    properties = mongo.db.properties.find({"price":{"$lte":"200000"}})
+    return render_template("properties.html", properties=properties)
+
+@app.route("/filter250k")
+def filter250k():
+    properties = mongo.db.properties.find({"price":{"$lte":"250000"}})
+    return render_template("properties.html", properties=properties)
+
+@app.route("/filter275k")
+def filter275k():
+    properties = mongo.db.properties.find({"price":{"$lte":"275000"}})
+    return render_template("properties.html", properties=properties)
+
+@app.route("/filter300k")
+def filter300k():
+    properties = mongo.db.properties.find({"price":{"$lte":"300000"}})
+    return render_template("properties.html", properties=properties)
+
+@app.route("/filter320k")
+def filter320k():
+    properties = mongo.db.properties.find({"price":{"$lte":"320000"}})
+    return render_template("properties.html", properties=properties)
+
+
+
 
 
 @app.route("/property_detail/<property_id>")
